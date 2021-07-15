@@ -1,12 +1,16 @@
-import React from "react";
+import userEvent from "@testing-library/user-event";
+import React, {useState, useEffect} from "react";
 import "./App.css";
 
+
 function App() {
+  const [nasaPic, setNasaPic] = useState("")
+
+
   return (
     <div className="App">
       <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
+        This should be an image ${nasaPic} <span role="img" aria-label='go!'>🚀</span>!
       </p>
     </div>
   );
