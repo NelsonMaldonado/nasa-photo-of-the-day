@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
 import "./App.css"
-import PictureAPI from "./components/Pictures/Pictures"
-import { Button } from "reactstrap"
 import axios from "axios"
 import { BASE_URL, API_KEY } from "./constants/constants"
+import Date from "./components/date"
 
 function App() {
   const [picture, setPicture] = useState({
+    copyright: "Who made this?",
     title: "Picture of the day",
     explanation: "Details go here",
     hdurl:
@@ -31,10 +31,12 @@ function App() {
       <h2>{picture.title}</h2>
       <div>
         <img src={picture.hdurl} />
-        <p>{picture.explanation}</p>
+        <div className="about">{picture.explanation}</div>
+        <p>{picture.copyright}</p>
+        <div>
+          <Date date={picture.date} />
+        </div>
       </div>
-
-      <PictureAPI />
     </div>
   )
 }
